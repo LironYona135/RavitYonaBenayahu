@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "812457396998",
+    "project_id": "belove-c69da",
+    "storage_bucket": "belove-c69da.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:812457396998:android:f51e191336a7b3d4516c87",
+        "android_client_info": {
+          "package_name": "com.yanivliron.belove"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "812457396998-b90kp3jmvoku47825s4e1nla3uojg6vc.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.yanivliron.belove",
+            "certificate_hash": "1211af2f905f132a7a3f55dbd9adb36be76423f1"
+          }
+        },
+        {
+          "client_id": "812457396998-b10lav8n7di3hcod8hd15u79chci0jgs.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDlAmM_sDvgkstSXpyk3mkzfXfFkKIm_2o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "812457396998-b10lav8n7di3hcod8hd15u79chci0jgs.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

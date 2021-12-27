@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation2"
+    app:startDestination="@id/incenseRecyclerFragment">
+
+    <fragment
+        android:id="@+id/navigation_dashboard"
+        android:name="com.example.belove.ui.App.dashboard.DashboardFragment"
+        android:label="@string/title_dashboard"
+        tools:layout="@layout/fragment_dashboard" />
+
+    <fragment
+        android:id="@+id/navigation_notifications"
+        android:name="com.example.belove.ui.App.notifications.NotificationsFragment"
+        android:label="@string/title_notifications"
+        tools:layout="@layout/fragment_notifications" />
+    <fragment
+        android:id="@+id/incenseDataUploadFragment"
+        android:name="com.example.belove.ui.App.incenseView.IncenseDataUpload.IncenseDataUploadFragment"
+        android:label="incense_data_upload_fragment"
+        tools:layout="@layout/incense_data_upload_fragment" >
+        <action
+            android:id="@+id/action_incenseDataUploadFragment_to_incenseRecyclerFragment"
+            app:destination="@id/incenseRecyclerFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/incenseRecyclerFragment"
+        android:name="com.example.belove.ui.App.incenseView.IncenseRecycler.IncenseRecyclerFragment"
+        android:label="incense_recycler_fragment"
+        tools:layout="@layout/incense_recycler_fragment">
+        <action
+            android:id="@+id/action_incenseRecyclerFragment_to_incenseDataUploadFragment"
+            app:destination="@id/incenseDataUploadFragment" />
+    </fragment>
+</navigation>
