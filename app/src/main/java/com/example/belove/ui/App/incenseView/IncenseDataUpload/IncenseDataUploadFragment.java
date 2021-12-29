@@ -71,7 +71,7 @@ public class IncenseDataUploadFragment extends Fragment {
 
         binding.btnUpload.setOnClickListener(v -> {
             if (imgUri == null) {
-                Toast.makeText(getContext(), "please choose a picture for the product!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), "נא לבחור תמונה למוצר!", Toast.LENGTH_SHORT).show();
                 return;
             }
 
