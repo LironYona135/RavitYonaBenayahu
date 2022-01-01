@@ -45,7 +45,8 @@ public class IncenseRecyclerFragment extends Fragment {
                              ViewGroup container, Bundle savedInstanceState) {
         incenseRecyclerViewModel =
                 new ViewModelProvider(this).get(IncenseRecyclerViewModel.class);
-        dbRef = FirebaseFirestore.getInstance().collection("Data").document("Incenses");
+        dbRef = FirebaseFirestore.getInstance().collection("Data")
+                .document("Incenses");
         binding = IncenseRecyclerFragmentBinding.inflate(inflater, container, false);
 
         return binding.getRoot();
@@ -56,7 +57,8 @@ public class IncenseRecyclerFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         binding.actionButtonAddIncense.setOnClickListener(v -> {
-            NavHostFragment.findNavController(IncenseRecyclerFragment.this).navigate(R.id.action_incenseRecyclerFragment_to_incenseDataUploadFragment);
+            NavHostFragment.findNavController(IncenseRecyclerFragment.this)
+                    .navigate(R.id.action_incenseRecyclerFragment_to_incenseDataUploadFragment);
         });
 
 

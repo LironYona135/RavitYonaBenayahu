@@ -63,7 +63,9 @@ public class IncenseDataUploadFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         ((AppCompatActivity) getActivity()).getSupportActionBar().hide();
-        FirebaseDatabase.getInstance("https://belove-c69da-default-rtdb.europe-west1.firebasedatabase.app").getReference().child("hello12").child("hello33").setValue("yoyo32");
+        FirebaseDatabase
+                .getInstance("https://belove-c69da-default-rtdb.europe-west1.firebasedatabase.app")
+                .getReference().child("hello12").child("hello33").setValue("yoyo32");
         binding.imageViewIncense.setOnClickListener(v -> {
             fileChooser();
         });
