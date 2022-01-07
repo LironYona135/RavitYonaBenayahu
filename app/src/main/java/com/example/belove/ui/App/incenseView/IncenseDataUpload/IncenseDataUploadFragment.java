@@ -26,6 +26,7 @@ import com.example.belove.models.incense.Incenses;
 import com.example.belove.ui.App.MainActivity;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
@@ -43,15 +44,18 @@ public class IncenseDataUploadFragment extends Fragment {
     private StorageReference mStorageRef;
     private Uri imgUri;
     private DocumentReference dRef;
-    private CollectionReference dIncenseNamesRef;
+    private DatabaseReference dbRef;
 
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
         mViewModel = new ViewModelProvider(this).get(IncenseDataUploadViewModel.class);
+        //need to remove
         dRef = FirebaseFirestore.getInstance().collection("Data").document("Incenses");
-        dIncenseNamesRef = FirebaseFirestore.getInstance().collection("Data").document("IncenseNames").collection("names");
+
+        dbRef = FirebaseDatabase.getInstance("https://belove-c69da-default-rtdb.europe-west1.firebasedatabase.app")
+                .getReference().child("Incense");
         mStorageRef = FirebaseStorage.getInstance().getReference("Images");
         binding = IncenseDataUploadFragmentBinding.inflate(inflater, container, false);
         return binding.getRoot();
@@ -84,13 +88,12 @@ public class IncenseDataUploadFragment extends Fragment {
 
     //upload the file to firebase
     private void fileUploader() {
-
-
-
-
-        Incense incense =new Incense("headLine test", "description test", 555, "imageID", true);
+        //Incense incense =new Incense("headLine test", "description test", 555, "imageID", true);
+        Incense incense = new Incense();
         String incenseID = UUID.randomUUID().toString();
+        //todo:not sure we need incense id, if the titles get checked
         incense.setIncenseID(incenseID);
+        //todo:for that checks the title is unique after retrieving the information
         String incenseTitle = binding.etTitle.getText().toString().trim();
         incense.setTitle(incenseTitle);
         incense.setDescription(binding.etDescription.getText().toString().trim());
@@ -106,9 +109,9 @@ public class IncenseDataUploadFragment extends Fragment {
 //        String incenseID = UUID.randomUUID().toString();
         //Incense incense = new Incense(title, description, price, imageID, inStock,incenseID);
 
+dbRef.push().setValue(incense);
 
-
-
+//todo:firestore save data, probably remove later, for now stay
 dRef.collection(incenseID).document(incense.getTitle()).set(incense);
 
 

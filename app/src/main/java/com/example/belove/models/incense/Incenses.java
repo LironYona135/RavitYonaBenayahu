@@ -9,10 +9,14 @@ int i = 0;
 
         for (int i = 0; i < 150; i++) {
 
-            incenses.add(new Incense("headLine test", "description test", 555,"imageID", true));
+            //incenses.add(new Incense("headLine test", "description test", 555,"imageID", true));
 
         }
 
+    }
+
+    public void addIncense(Incense incense){
+        getIncenses().add(incense);
     }
 
     public Incenses(ArrayList<Incense> incenses){

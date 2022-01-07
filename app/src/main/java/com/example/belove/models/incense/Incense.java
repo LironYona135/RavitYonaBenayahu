@@ -17,7 +17,8 @@ public class Incense {
 //        setIncenseID(incenseID);
 //    }
 
-    public Incense(String headLine_test, String description_test, int i, String imageID, boolean b) {
+
+    public Incense() {
     }
 
     public String getIncenseID() {

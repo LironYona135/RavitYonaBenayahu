@@ -24,6 +24,7 @@
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.335" />
         <entry key="app/src/main/res/layout/incense_data_upload_fragment.xml" value="0.25" />
         <entry key="app/src/main/res/layout/incense_recycler_fragment.xml" value="0.1625" />
+        <entry key="app/src/main/res/layout/incense_view.xml" value="0.5" />
         <entry key="app/src/main/res/layout/login_fragment.xml" value="0.25" />
         <entry key="app/src/main/res/layout/register_fragment.xml" value="0.22" />
         <entry key="app/src/main/res/layout/totem_view.xml" value="0.34322916666666664" />
