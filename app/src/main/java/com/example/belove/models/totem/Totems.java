@@ -9,22 +9,14 @@ public class Totems {
     private ArrayList<Totem> totems= new ArrayList<>();
 
 
-    public Totems() {
-        totems.add(new Totem("i dont know1","i really dont know", "imageid"));
-    }
+    public Totems(){}
+
 
     public void addTotem(Totem totem){
-        totems.add(totem);
+        getTotems().add(totem);
     }
 
-    public Totem removeTotem(String title){
-        for (int i = 0; i < totems.size(); i++) {
-            if (totems.get(i).getTitle().equals(title)){
-                return totems.remove(i);
-            }
-        }
-        return new Totem("nothing","nothing","imageid");
-    }
+
 
     public ArrayList<Totem> getTotems() {
         return totems;

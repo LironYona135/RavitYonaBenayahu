@@ -4,13 +4,23 @@ public class Totem {
 
     private String title;
     private String description;
-    private String imageid;
+    private double price;
+    private String imageID;
+    private boolean inStock;
+    private String incenseID;
 
 
-    public Totem(String title, String description, String imageid) {
+
+    public Totem(String title, String description, double price, String imageID, boolean inStock, String incenseID) {
         this.title = title;
         this.description = description;
-        this.imageid = imageid;
+        this.price = price;
+        this.imageID = imageID;
+        this.inStock = inStock;
+        this.incenseID = incenseID;
+    }
+
+    public Totem() {
     }
 
     public String getTitle() {
@@ -29,12 +39,36 @@ public class Totem {
         this.description = description;
     }
 
-    public String getImage() {
-        return imageid;
+    public double getPrice() {
+        return price;
     }
 
-    public void setImage(String image) {
-        this.imageid = image;
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    public String getImageID() {
+        return imageID;
+    }
+
+    public void setImageID(String imageID) {
+        this.imageID = imageID;
+    }
+
+    public boolean isInStock() {
+        return inStock;
+    }
+
+    public void setInStock(boolean inStock) {
+        this.inStock = inStock;
+    }
+
+    public String getIncenseID() {
+        return incenseID;
+    }
+
+    public void setIncenseID(String incenseID) {
+        this.incenseID = incenseID;
     }
 
     @Override
@@ -42,7 +76,10 @@ public class Totem {
         return "Totem{" +
                 "title='" + title + '\'' +
                 ", description='" + description + '\'' +
-                ", image=" + imageid +
+                ", price=" + price +
+                ", imageID='" + imageID + '\'' +
+                ", inStock=" + inStock +
+                ", incenseID='" + incenseID + '\'' +
                 '}';
     }
 }

@@ -1,4 +1,4 @@
-package com.example.belove.ui.App.dashboard;
+package com.example.belove.ui.App.TotemView;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
