@@ -1,4 +1,4 @@
-package com.example.belove.ui.App.incenseView.IncenseDataUpload;
+package com.example.belove.ui.App.IncenseView.IncenseDataUpload;
 
 import static android.app.Activity.RESULT_OK;
 
@@ -22,15 +22,12 @@ import android.widget.Toast;
 import com.example.belove.R;
 import com.example.belove.databinding.IncenseDataUploadFragmentBinding;
 import com.example.belove.models.incense.Incense;
-import com.example.belove.models.incense.Incenses;
 import com.example.belove.ui.App.MainActivity;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
-import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
@@ -39,7 +36,7 @@ import java.util.UUID;
 
 public class IncenseDataUploadFragment extends Fragment {
 
-    private IncenseDataUploadViewModel mViewModel;
+    private IncenseDataUploadViewModel incenseDataUploadViewModel;
     private IncenseDataUploadFragmentBinding binding;
     private StorageReference mStorageRef;
     private Uri imgUri;
@@ -50,9 +47,7 @@ public class IncenseDataUploadFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        mViewModel = new ViewModelProvider(this).get(IncenseDataUploadViewModel.class);
-        //need to remove
-        dRef = FirebaseFirestore.getInstance().collection("Data").document("Incenses");
+        incenseDataUploadViewModel = new ViewModelProvider(this).get(IncenseDataUploadViewModel.class);
 
         dbRef = FirebaseDatabase.getInstance("https://belove-c69da-default-rtdb.europe-west1.firebasedatabase.app")
                 .getReference().child("Incense");
@@ -67,9 +62,6 @@ public class IncenseDataUploadFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         ((AppCompatActivity) getActivity()).getSupportActionBar().hide();
-        FirebaseDatabase
-                .getInstance("https://belove-c69da-default-rtdb.europe-west1.firebasedatabase.app")
-                .getReference().child("hello12").child("hello33").setValue("yoyo32");
         binding.imageViewIncense.setOnClickListener(v -> {
             fileChooser();
         });
@@ -99,7 +91,7 @@ public class IncenseDataUploadFragment extends Fragment {
         incense.setDescription(binding.etDescription.getText().toString().trim());
         incense.setPrice(Double.parseDouble(binding.etPrice.getText().toString().trim()));
         incense.setInStock(binding.cbInStock.isChecked());
-        String imageID = UUID.randomUUID().toString() + "." + mViewModel.getExtension(imgUri, getActivity());
+        String imageID = UUID.randomUUID().toString() + "." + incenseDataUploadViewModel.getExtension(imgUri, getActivity());
         incense.setImageID(imageID);
 //        String title = binding.etTitle.getText().toString().trim();
 //        String description = binding.etDescription.getText().toString().trim();

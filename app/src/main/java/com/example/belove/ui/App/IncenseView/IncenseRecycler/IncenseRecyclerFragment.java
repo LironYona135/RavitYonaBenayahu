@@ -1,4 +1,4 @@
-package com.example.belove.ui.App.incenseView.IncenseRecycler;
+package com.example.belove.ui.App.IncenseView.IncenseRecycler;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;

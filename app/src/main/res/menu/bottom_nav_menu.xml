@@ -4,16 +4,21 @@
     <item
         android:id="@+id/incenseRecyclerFragment"
         android:icon="@drawable/ic_home_black_24dp"
-        android:title="@string/title_home" />
+        android:title="Incenses" />
 
     <item
-        android:id="@+id/navigation_dashboard"
+        android:id="@+id/totemRecyclerFragment"
         android:icon="@drawable/ic_dashboard_black_24dp"
-        android:title="@string/title_dashboard" />
+        android:title="Totems" />
 
     <item
         android:id="@+id/navigation_notifications"
         android:icon="@drawable/ic_notifications_black_24dp"
         android:title="@string/title_notifications" />
+
+    <item
+        android:id="@+id/aboutMe"
+        android:icon="@drawable/ic_menu_camera"
+        android:title="about me" />
 
 </menu>

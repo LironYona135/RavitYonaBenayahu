@@ -6,19 +6,13 @@
     app:startDestination="@id/incenseRecyclerFragment">
 
     <fragment
-        android:id="@+id/navigation_dashboard"
-        android:name="com.example.belove.ui.App.dashboard.DashboardFragment"
-        android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
-
-    <fragment
         android:id="@+id/navigation_notifications"
         android:name="com.example.belove.ui.App.notifications.NotificationsFragment"
         android:label="@string/title_notifications"
         tools:layout="@layout/fragment_notifications" />
     <fragment
         android:id="@+id/incenseDataUploadFragment"
-        android:name="com.example.belove.ui.App.incenseView.IncenseDataUpload.IncenseDataUploadFragment"
+        android:name="com.example.belove.ui.App.IncenseView.IncenseDataUpload.IncenseDataUploadFragment"
         android:label="incense_data_upload_fragment"
         tools:layout="@layout/incense_data_upload_fragment" >
         <action
@@ -27,11 +21,34 @@
     </fragment>
     <fragment
         android:id="@+id/incenseRecyclerFragment"
-        android:name="com.example.belove.ui.App.incenseView.IncenseRecycler.IncenseRecyclerFragment"
+        android:name="com.example.belove.ui.App.IncenseView.IncenseRecycler.IncenseRecyclerFragment"
         android:label="incense_recycler_fragment"
         tools:layout="@layout/incense_recycler_fragment">
         <action
             android:id="@+id/action_incenseRecyclerFragment_to_incenseDataUploadFragment"
             app:destination="@id/incenseDataUploadFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/aboutMe"
+        android:name="com.example.belove.ui.App.AboutMe.AboutMe"
+        android:label="about_me_fragment"
+        tools:layout="@layout/about_me_fragment" />
+    <fragment
+        android:id="@+id/totemRecyclerFragment"
+        android:name="com.example.belove.ui.App.TotemView.TotemRecycler.TotemRecyclerFragment"
+        android:label="totem_recycler_fragment"
+        tools:layout="@layout/totem_recycler_fragment" >
+        <action
+            android:id="@+id/action_totemRecyclerFragment_to_totemDataUploadFragment"
+            app:destination="@id/totemDataUploadFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/totemDataUploadFragment"
+        android:name="com.example.belove.ui.App.TotemView.TotemDataUpload.TotemDataUploadFragment"
+        android:label="totem_data_upload_fragment"
+        tools:layout="@layout/totem_data_upload_fragment" >
+        <action
+            android:id="@+id/action_totemDataUploadFragment_to_totemRecyclerFragment"
+            app:destination="@id/totemRecyclerFragment" />
     </fragment>
 </navigation>
