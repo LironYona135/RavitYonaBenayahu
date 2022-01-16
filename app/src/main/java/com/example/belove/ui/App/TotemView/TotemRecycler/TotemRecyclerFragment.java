@@ -16,10 +16,13 @@ import android.view.ViewGroup;
 
 import com.example.belove.R;
 import com.example.belove.adapters.IncenseAdapter;
+import com.example.belove.adapters.TotemsAdapter;
 import com.example.belove.databinding.IncenseRecyclerFragmentBinding;
 import com.example.belove.databinding.TotemRecyclerFragmentBinding;
 import com.example.belove.models.incense.Incense;
 import com.example.belove.models.incense.Incenses;
+import com.example.belove.models.totem.Totem;
+import com.example.belove.models.totem.Totems;
 import com.example.belove.ui.App.IncenseView.IncenseRecycler.IncenseRecyclerViewModel;
 import com.example.belove.ui.App.MainActivity;
 import com.google.firebase.database.DataSnapshot;
@@ -33,7 +36,7 @@ public class TotemRecyclerFragment extends Fragment {
     private TotemRecyclerViewModel totemRecyclerViewModel;
     private TotemRecyclerFragmentBinding binding;
     private DatabaseReference dbRef;
-    private static Incenses incenses = new Incenses();
+    private static Totems totems = new Totems();
     private static boolean firstOpening = true;
 
 
@@ -53,13 +56,13 @@ public class TotemRecyclerFragment extends Fragment {
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
 
                     for (DataSnapshot postSnapshot : snapshot.getChildren()) {
-                        Incense incense = postSnapshot.getValue(Incense.class);
-                        incenses.addIncense(incense);
+                        Totem totem = postSnapshot.getValue(Totem.class);
+                        totems.addTotem(totem);
                     }
-                    IncenseAdapter adapter = new IncenseAdapter(incenses.getIncenses());
+                    TotemsAdapter adapter = new TotemsAdapter(totems.getTotems());
                     binding.totemRecyclerView.setAdapter(adapter);
                     binding.totemRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-                    System.out.println(incenses);
+                    System.out.println(totems);
                 }
 
                 @Override
@@ -84,7 +87,7 @@ public class TotemRecyclerFragment extends Fragment {
         });
 
         if (!firstOpening){
-            IncenseAdapter adapter = new IncenseAdapter(incenses.getIncenses());
+            TotemsAdapter adapter = new TotemsAdapter(totems.getTotems());
             binding.totemRecyclerView.setAdapter(adapter);
             binding.totemRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         }
