@@ -37,4 +37,9 @@
         android:name="com.example.belove.ui.loginRegister.login.GoogleSignInActivity"
         android:label="activity_google_sign_in"
         tools:layout="@layout/activity_google_sign_in" />
+    <activity
+        android:id="@+id/splashActivity"
+        android:name="com.example.belove.ui.SplashPage.SplashActivity"
+        android:label="activity_splash"
+        tools:layout="@layout/activity_splash" />
 </navigation>

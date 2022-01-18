@@ -13,6 +13,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BeLove">
         <activity
+            android:name=".LoginRegisterActivity"
+            android:exported="false"
+            android:label="@string/app_name"
+            android:theme="@style/Theme.BeLove.NoActionBar"/>
+
+        <activity
             android:name=".ui.loginRegister.login.GoogleSignInActivity"
             android:exported="false" />
         <activity
@@ -20,17 +26,18 @@
             android:exported="false"
             android:label="@string/title_activity_rest_of_app" />
         <activity
-            android:name=".LoginRegisterActivity"
+            android:name=".ui.SplashPage.SplashActivity"
             android:exported="true"
-            android:label="@string/app_name"
             android:theme="@style/Theme.BeLove.NoActionBar">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.MAIN"/>
 
-                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
-        </activity>
 
+        </activity>
     </application>
 
 </manifest>
+
+
