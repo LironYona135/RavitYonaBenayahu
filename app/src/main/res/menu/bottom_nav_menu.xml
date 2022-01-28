@@ -3,22 +3,22 @@
 
     <item
         android:id="@+id/incenseRecyclerFragment"
-        android:icon="@drawable/ic_home_black_24dp"
-        android:title="Incenses" />
+        android:icon="@drawable/ic_shopping_bag"
+        android:title="החנות" />
 
     <item
         android:id="@+id/totemRecyclerFragment"
-        android:icon="@drawable/ic_dashboard_black_24dp"
-        android:title="Totems" />
+        android:icon="@drawable/ic_totem__1_"
+        android:title="טוטם" />
 
     <item
         android:id="@+id/navigation_notifications"
-        android:icon="@drawable/ic_notifications_black_24dp"
-        android:title="@string/title_notifications" />
+        android:icon="@drawable/ic_event"
+        android:title="אירועים" />
 
     <item
         android:id="@+id/aboutMe"
-        android:icon="@drawable/ic_menu_camera"
-        android:title="about me" />
+        android:icon="@drawable/ic_info"
+        android:title="קצת עליי" />
 
 </menu>
