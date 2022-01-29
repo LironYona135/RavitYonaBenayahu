@@ -40,7 +40,6 @@ public class IncenseDataUploadFragment extends Fragment {
     private IncenseDataUploadFragmentBinding binding;
     private StorageReference mStorageRef;
     private Uri imgUri;
-    private DocumentReference dRef;
     private DatabaseReference dbRef;
 
 
@@ -103,8 +102,6 @@ public class IncenseDataUploadFragment extends Fragment {
 
 dbRef.push().setValue(incense);
 
-//todo:firestore save data, probably remove later, for now stay
-dRef.collection(incenseID).document(incense.getTitle()).set(incense);
 
 
       //  FirebaseFirestore.getInstance().collection("Incenses").document(incenseID).set(incense);

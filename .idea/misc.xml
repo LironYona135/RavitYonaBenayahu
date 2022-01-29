@@ -35,11 +35,14 @@
         <entry key="app/src/main/res/layout/content_main.xml" value="0.11510416666666666" />
         <entry key="app/src/main/res/layout/fragment_gallery.xml" value="0.11510416666666666" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.335" />
+        <entry key="app/src/main/res/layout/fragment_notifications.xml" value="0.2056159420289855" />
         <entry key="app/src/main/res/layout/incense_data_upload_fragment.xml" value="0.25" />
         <entry key="app/src/main/res/layout/incense_recycler_fragment.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/incense_view.xml" value="0.5" />
+        <entry key="app/src/main/res/layout/incense_view.xml" value="0.1" />
         <entry key="app/src/main/res/layout/login_fragment.xml" value="0.25" />
         <entry key="app/src/main/res/layout/register_fragment.xml" value="0.22" />
+        <entry key="app/src/main/res/layout/shopping_cart_fragment.xml" value="0.2056159420289855" />
+        <entry key="app/src/main/res/layout/shopping_cart_view.xml" value="0.256" />
         <entry key="app/src/main/res/layout/totem_data_upload_fragment.xml" value="0.190625" />
         <entry key="app/src/main/res/layout/totem_recycler_fragment.xml" value="0.2269021739130435" />
         <entry key="app/src/main/res/layout/totem_view.xml" value="0.34322916666666664" />

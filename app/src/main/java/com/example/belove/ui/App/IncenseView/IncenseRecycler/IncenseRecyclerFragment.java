@@ -37,8 +37,6 @@ public class IncenseRecyclerFragment extends Fragment {
     private static boolean firstOpening = true;
 
 
-
-
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         incenseRecyclerViewModel =
@@ -58,6 +56,7 @@ public class IncenseRecyclerFragment extends Fragment {
                         Incense incense = postSnapshot.getValue(Incense.class);
                         incenses.addIncense(incense);
                     }
+                    //todo:save uri so that you dont have to go to internet everytime to get photos
                     IncenseAdapter adapter = new IncenseAdapter(incenses.getIncenses());
                     binding.incenseRecyclerView.setAdapter(adapter);
                     binding.incenseRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
@@ -81,24 +80,25 @@ public class IncenseRecyclerFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         String email = FirebaseAuth.getInstance().getCurrentUser().getEmail();
-if(email != null) {
-    if (email.equalsIgnoreCase("lironyona135@gmail.com")) {
-        binding.actionButtonAddIncense.setVisibility(View.VISIBLE);
-    }else{
-        binding.actionButtonAddIncense.setVisibility(View.INVISIBLE);
-    }
-}
+        //todo:make it default hidden and if email equals authorized email then make button visible
+        if (email != null) {
+            if (email.equalsIgnoreCase("lironyona135@gmail.com")) {
+                binding.actionButtonAddIncense.setVisibility(View.VISIBLE);
+            } else {
+                binding.actionButtonAddIncense.setVisibility(View.INVISIBLE);
+            }
+        }
         binding.actionButtonAddIncense.setOnClickListener(v -> {
             NavHostFragment.findNavController(IncenseRecyclerFragment.this)
                     .navigate(R.id.action_incenseRecyclerFragment_to_incenseDataUploadFragment);
         });
 
 
-if (!firstOpening){
-    IncenseAdapter adapter = new IncenseAdapter(incenses.getIncenses());
-    binding.incenseRecyclerView.setAdapter(adapter);
-    binding.incenseRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-}
+        if (!firstOpening) {
+            IncenseAdapter adapter = new IncenseAdapter(incenses.getIncenses());
+            binding.incenseRecyclerView.setAdapter(adapter);
+            binding.incenseRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        }
 
 
 //todo:after entering this screen once the data is downloaded and kept till destory or for a time that we will set

@@ -45,6 +45,7 @@ public class RegisterFragment extends Fragment {
 
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+//todo:check if email is real thru authentication or something else
 
         binding.AlreadyHaveAccount.setOnClickListener(v -> {
             NavHostFragment.findNavController(RegisterFragment.this).navigate(R.id.action_registerFragment_to_loginFragment);

@@ -13,26 +13,33 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.belove.R;
+import com.example.belove.databinding.AboutMeFragmentBinding;
+import com.example.belove.databinding.ShoppingCartFragmentBinding;
+import com.example.belove.ui.App.ShoppingCart.ShoppingCartViewModel;
 
 public class AboutMe extends Fragment {
 
-    private AboutMeViewModel mViewModel;
 
-    public static AboutMe newInstance() {
-        return new AboutMe();
+    private AboutMeViewModel aboutMeViewModel;
+    private AboutMeFragmentBinding binding;
+
+@Override
+    public View onCreateView(@NonNull LayoutInflater inflater,
+                             ViewGroup container, Bundle savedInstanceState) {
+        aboutMeViewModel =
+                new ViewModelProvider(this).get(AboutMeViewModel.class);
+
+        binding = AboutMeFragmentBinding.inflate(inflater, container, false);
+
+
+        return binding.getRoot();
     }
 
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
-                             @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.about_me_fragment, container, false);
+    public void onDestroyView() {
+        super.onDestroyView();
+        binding = null;
     }
 
-    @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-        mViewModel = new ViewModelProvider(this).get(AboutMeViewModel.class);
-        // TODO: Use the ViewModel
-    }
 
 }

@@ -1,5 +1,6 @@
 package com.example.belove.adapters;
 
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
@@ -8,7 +9,10 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.belove.SharedPrefs.SharedPrefs;
 import com.example.belove.databinding.IncenseViewBinding;
+import com.example.belove.models.ShoppingCart.CartItem;
+import com.example.belove.models.ShoppingCart.CartItems;
 import com.example.belove.models.incense.Incense;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -22,6 +26,7 @@ import java.util.ArrayList;
 public class IncenseAdapter extends RecyclerView.Adapter<IncenseAdapter.VH> {
 
     private ArrayList<Incense> incenses;
+    private static CartItems cartItems = new CartItems();
 
     public IncenseAdapter(ArrayList<Incense> incenses) {
         this.incenses = incenses;
@@ -59,6 +64,15 @@ public class IncenseAdapter extends RecyclerView.Adapter<IncenseAdapter.VH> {
             }
         });
 
+        holder.binding.addToCartButton.setOnClickListener(v -> {
+            CartItem cartItem = new CartItem();
+            cartItem.setTitle(incense.getTitle());
+            cartItem.setPrice(incense.getPrice());
+            cartItem.setImageID(incense.getImageID());
+            cartItems.addCartItem(cartItem);
+            SharedPrefs.saveShoppingItems(holder.itemView.getContext(), cartItems);
+        });
+
     }
 
 
@@ -74,5 +88,4 @@ public class IncenseAdapter extends RecyclerView.Adapter<IncenseAdapter.VH> {
             this.binding = binding;
         }
     }
-
 }

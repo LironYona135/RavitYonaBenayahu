@@ -6,6 +6,7 @@ public class Incense {
     private double price;
     private String imageID;
     private boolean inStock;
+    //todo:probably dont need incenseID
     private String incenseID;
 
 //    public Incense(String title, String description, double price, String imageID, boolean inStock,String incenseID) {
@@ -70,6 +71,7 @@ public class Incense {
         this.inStock = inStock;
     }
 
+    //todo:do we need this constructor?
     public Incense(String title, String description, double price, String imageID, boolean inStock, String incenseID) {
         this.title = title;
         this.description = description;

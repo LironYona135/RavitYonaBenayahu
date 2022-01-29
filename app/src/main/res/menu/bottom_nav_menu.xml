@@ -12,7 +12,7 @@
         android:title="טוטם" />
 
     <item
-        android:id="@+id/navigation_notifications"
+        android:id="@+id/EventsFragment"
         android:icon="@drawable/ic_event"
         android:title="אירועים" />
 
@@ -20,5 +20,10 @@
         android:id="@+id/aboutMe"
         android:icon="@drawable/ic_info"
         android:title="קצת עליי" />
+
+    <item
+        android:id="@+id/shoppingCart"
+        android:icon="@drawable/ic_shopping_bag"
+        android:title="עגלה" />
 
 </menu>
