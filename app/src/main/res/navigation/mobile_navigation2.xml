@@ -35,22 +35,9 @@
         tools:layout="@layout/about_me_fragment" />
     <fragment
         android:id="@+id/totemRecyclerFragment"
-        android:name="com.example.belove.ui.App.TotemView.TotemRecycler.TotemRecyclerFragment"
+        android:name="com.example.belove.ui.App.ServicesView.ServicesRecyclerFragment"
         android:label="totem_recycler_fragment"
-        tools:layout="@layout/totem_recycler_fragment" >
-        <action
-            android:id="@+id/action_totemRecyclerFragment_to_totemDataUploadFragment"
-            app:destination="@id/totemDataUploadFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/totemDataUploadFragment"
-        android:name="com.example.belove.ui.App.TotemView.TotemDataUpload.TotemDataUploadFragment"
-        android:label="totem_data_upload_fragment"
-        tools:layout="@layout/totem_data_upload_fragment" >
-        <action
-            android:id="@+id/action_totemDataUploadFragment_to_totemRecyclerFragment"
-            app:destination="@id/totemRecyclerFragment" />
-    </fragment>
+        tools:layout="@layout/totem_recycler_fragment" />
     <fragment
         android:id="@+id/shoppingCart"
         android:name="com.example.belove.ui.App.ShoppingCart.ShoppingCartFragment"

@@ -101,6 +101,10 @@ binding.btnGoogle.setOnClickListener(v -> {
     NavHostFragment.findNavController(LoginFragment.this).navigate(R.id.action_loginFragment_to_googleSignInActivity);
 });
 
+binding.forgotPassword.setOnClickListener(v -> {
+    //todo:add forgot password
+});
+
     }
 
     @Override

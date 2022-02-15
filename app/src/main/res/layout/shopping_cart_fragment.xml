@@ -6,33 +6,31 @@
     android:layout_height="match_parent"
     tools:context=".ui.App.ShoppingCart.ShoppingCartFragment">
 
-    <Button
-        android:id="@+id/orderHistoryBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="50dp"
-        android:layout_marginBottom="60dp"
-        android:text="היסטוריה"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/shoppingCartRecyclerView" />
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/shoppingCartRecyclerView"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginBottom="24dp"
-        app:layout_constraintBottom_toTopOf="@+id/orderHistoryBtn"
+        app:layout_constraintBottom_toTopOf="@+id/checkoutBtn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/checkoutBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="50dp"
+        android:layout_width="88dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="64dp"
         android:text="לרכישה"
-        app:layout_constraintBottom_toBottomOf="@+id/orderHistoryBtn"
-        app:layout_constraintEnd_toEndOf="@+id/shoppingCartRecyclerView"
-        app:layout_constraintTop_toTopOf="@+id/orderHistoryBtn" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textview_sum"
+        android:layout_width="58dp"
+        android:layout_height="19dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintBottom_toBottomOf="@+id/checkoutBtn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/checkoutBtn" />
 </androidx.constraintlayout.widget.ConstraintLayout>
