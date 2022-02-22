@@ -93,7 +93,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/inputEmail" />
 
             <TextView
-                android:id="@+id/forgotPassword"
+                android:id="@+id/BtnForgotPassword"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
@@ -111,9 +111,9 @@
                 android:background="@drawable/input_bg"
                 android:text="Login"
                 android:textColor="@color/white"
-                app:layout_constraintEnd_toEndOf="@+id/forgotPassword"
+                app:layout_constraintEnd_toEndOf="@+id/BtnForgotPassword"
                 app:layout_constraintStart_toStartOf="@+id/inputPassword"
-                app:layout_constraintTop_toBottomOf="@+id/forgotPassword" />
+                app:layout_constraintTop_toBottomOf="@+id/BtnForgotPassword" />
 
             <TextView
                 android:id="@+id/createNewAccount"

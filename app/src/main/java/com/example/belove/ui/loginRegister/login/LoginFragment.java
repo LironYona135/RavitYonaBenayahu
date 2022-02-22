@@ -29,8 +29,6 @@ public class LoginFragment extends Fragment {
     private FirebaseAuth mAuth;
 
 
-
-
     @Override
     public View onCreateView(
             LayoutInflater inflater,
@@ -58,52 +56,52 @@ public class LoginFragment extends Fragment {
         mAuth = FirebaseAuth.getInstance();
 
 
-binding.btnLogin.setOnClickListener(v -> {
-    String email = binding.inputEmail.getText().toString();
-    String password = binding.inputPassword.getText().toString();
+        binding.btnLogin.setOnClickListener(v -> {
+            String email = binding.inputEmail.getText().toString();
+            String password = binding.inputPassword.getText().toString();
 
 
-    int validation = lViewModel.performLogin(
-            email,
-            password
-    );
-    switch (validation) {
-        //error with email
-        case 1:
-            binding.inputEmail.setError("invalid email");
-            break;
-        case 2:
-            binding.inputPassword.setError("password must have at least 6 characters");
-            break;
-        case 0:
-            progressDialog.setMessage("please wait while logging in");
-            progressDialog.setTitle("Logged in");
-            progressDialog.setCanceledOnTouchOutside(false);
-            progressDialog.show();
-            mAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                @Override
-                public void onComplete(@NonNull Task<AuthResult> task) {
-                    if (task.isSuccessful()){
-                        progressDialog.dismiss();
-                        NavHostFragment.findNavController(LoginFragment.this).navigate(R.id.action_loginFragment_to_restOfApp);
-                        Toast.makeText(getContext(),"Login successful",Toast.LENGTH_SHORT).show();
-                    }else{
-                        progressDialog.dismiss();
-                        Toast.makeText(getContext(),""+task.getException(),Toast.LENGTH_SHORT).show();
-                    }
-                }
-            });
-            break;
-    }
-});
+            int validation = lViewModel.performLogin(
+                    email,
+                    password
+            );
+            switch (validation) {
+                //error with email
+                case 1:
+                    binding.inputEmail.setError("invalid email");
+                    break;
+                case 2:
+                    binding.inputPassword.setError("password must have at least 6 characters");
+                    break;
+                case 0:
+                    progressDialog.setMessage("please wait while logging in");
+                    progressDialog.setTitle("Logged in");
+                    progressDialog.setCanceledOnTouchOutside(false);
+                    progressDialog.show();
+                    mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+                            if (task.isSuccessful()) {
+                                progressDialog.dismiss();
+                                NavHostFragment.findNavController(LoginFragment.this).navigate(R.id.action_loginFragment_to_restOfApp);
+                                Toast.makeText(getContext(), "Login successful", Toast.LENGTH_SHORT).show();
+                            } else {
+                                progressDialog.dismiss();
+                                Toast.makeText(getContext(), "" + task.getException(), Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                    });
+                    break;
+            }
+        });
 
-binding.btnGoogle.setOnClickListener(v -> {
-    NavHostFragment.findNavController(LoginFragment.this).navigate(R.id.action_loginFragment_to_googleSignInActivity);
-});
+        binding.btnGoogle.setOnClickListener(v -> {
+            NavHostFragment.findNavController(LoginFragment.this).navigate(R.id.action_loginFragment_to_googleSignInActivity);
+        });
 
-binding.forgotPassword.setOnClickListener(v -> {
-    //todo:add forgot password
-});
+        binding.BtnForgotPassword.setOnClickListener(v -> {
+            NavHostFragment.findNavController(LoginFragment.this).navigate(R.id.action_loginFragment_to_forgotPassword);
+        });
 
     }
 

@@ -19,6 +19,9 @@
         <action
             android:id="@+id/action_loginFragment_to_googleSignInActivity"
             app:destination="@id/googleSignInActivity" />
+        <action
+            android:id="@+id/action_loginFragment_to_forgotPassword"
+            app:destination="@id/forgotPassword" />
     </fragment>
     <fragment
         android:id="@+id/registerFragment"
@@ -42,4 +45,12 @@
         android:name="com.example.belove.ui.SplashPage.SplashActivity"
         android:label="activity_splash"
         tools:layout="@layout/activity_splash" />
+    <fragment
+        android:id="@+id/forgotPassword"
+        android:name="com.example.belove.ui.loginRegister.ForgotPassword.ForgotPassword"
+        android:label="ForgotPassword" >
+        <action
+            android:id="@+id/action_forgotPassword_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
 </navigation>
