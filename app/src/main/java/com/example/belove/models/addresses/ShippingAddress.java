@@ -1,6 +1,6 @@
 package com.example.belove.models.addresses;
 
-public class BillingAddress {
+public class ShippingAddress {
     private String fullName;
     private String city;
     private String street;
@@ -8,14 +8,14 @@ public class BillingAddress {
     private int apartment;
 // constructor:
 
-    public BillingAddress(String fullName, String city, String street, int houseNumber, int apartment) {
+    public ShippingAddress(String fullName, String city, String street, int houseNumber, int apartment) {
         this.fullName = fullName;
         this.city = city;
         this.street = street;
         this.houseNumber = houseNumber;
         this.apartment = apartment;
     }
-//getters & setters:
+    //getters & setters:
     public String getFullName() {
         return fullName;
     }
@@ -58,7 +58,7 @@ public class BillingAddress {
 
     @Override
     public String toString() {
-        return "BillingAddress{" +
+        return "ShippingAddress{" +
                 "fullName='" + fullName + '\'' +
                 ", city='" + city + '\'' +
                 ", street='" + street + '\'' +
