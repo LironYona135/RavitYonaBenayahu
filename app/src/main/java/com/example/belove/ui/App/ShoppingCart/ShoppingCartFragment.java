@@ -8,12 +8,14 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.fragment.NavHostFragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.belove.R;
 import com.example.belove.SharedPrefs.SharedPrefs;
 import com.example.belove.adapters.IncenseAdapter;
 import com.example.belove.adapters.ShoppingCartAdapter;
@@ -42,17 +44,17 @@ public class ShoppingCartFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         CartItems cartItems = SharedPrefs.getShoppingItems(getContext());
-        if (cartItems != null ) {
+        if (cartItems != null) {
             ShoppingCartAdapter adapter = new ShoppingCartAdapter(cartItems.getCartItems());
             binding.shoppingCartRecyclerView.setAdapter(adapter);
             binding.shoppingCartRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         }
-    }
+        binding.checkoutBtn.setOnClickListener(v -> {
+            NavHostFragment.findNavController(ShoppingCartFragment.this)
+                    .navigate(R.id.action_shoppingCart_to_addressesFragment);
+        });
 
-    @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-        binding = null;
-    }
 
+
+    }
 }

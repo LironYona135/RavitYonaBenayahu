@@ -80,7 +80,7 @@ public class IncenseRecyclerFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         String email = FirebaseAuth.getInstance().getCurrentUser().getEmail();
-        //todo:make it default hidden and if email equals authorized email then make button visible
+
         if (email != null) {
             if (email.equalsIgnoreCase("lironyona135@gmail.com")) {
                 binding.actionButtonAddIncense.setVisibility(View.VISIBLE);

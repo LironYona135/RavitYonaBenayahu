@@ -42,5 +42,14 @@
         android:id="@+id/shoppingCart"
         android:name="com.example.belove.ui.App.ShoppingCart.ShoppingCartFragment"
         android:label="shopping_cart_fragment"
-        tools:layout="@layout/shopping_cart_fragment" />
+        tools:layout="@layout/shopping_cart_fragment" >
+        <action
+            android:id="@+id/action_shoppingCart_to_addressesFragment"
+            app:destination="@id/addressesFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addressesFragment"
+        android:name="com.example.belove.ui.App.ShoppingCart.AddressesFragment"
+        android:label="fragment_adresses"
+        tools:layout="@layout/fragment_adresses" />
 </navigation>

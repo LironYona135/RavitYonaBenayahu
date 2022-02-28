@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/aboutMe"
+        android:icon="@drawable/ic_info"
+        android:title="קצת עליי" />
 
     <item
         android:id="@+id/incenseRecyclerFragment"
@@ -17,13 +21,8 @@
         android:title="אירועים" />
 
     <item
-        android:id="@+id/aboutMe"
-        android:icon="@drawable/ic_info"
-        android:title="קצת עליי" />
-
-    <item
         android:id="@+id/shoppingCart"
-        android:icon="@drawable/ic_shopping_bag"
-        android:title="עגלה" />
+        android:icon="@drawable/ic_shopping_cart"
+        android:title="עגלת קניות" />
 
 </menu>
