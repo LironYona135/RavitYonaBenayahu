@@ -6,14 +6,16 @@ public class ShippingAddress {
     private String street;
     private int houseNumber;
     private int apartment;
+    private int zipCode;
 // constructor:
 
-    public ShippingAddress(String fullName, String city, String street, int houseNumber, int apartment) {
+    public ShippingAddress(String fullName, String city, String street, int houseNumber, int apartment, int zipCode) {
         this.fullName = fullName;
         this.city = city;
         this.street = street;
         this.houseNumber = houseNumber;
         this.apartment = apartment;
+        this.zipCode = zipCode;
     }
     //getters & setters:
     public String getFullName() {
@@ -56,6 +58,14 @@ public class ShippingAddress {
         this.apartment = apartment;
     }
 
+    public int getZipCode() {
+        return zipCode;
+    }
+
+    public void setZipCode(int zipCode) {
+        this.zipCode = zipCode;
+    }
+
     @Override
     public String toString() {
         return "ShippingAddress{" +
@@ -64,6 +74,7 @@ public class ShippingAddress {
                 ", street='" + street + '\'' +
                 ", houseNumber=" + houseNumber +
                 ", apartment=" + apartment +
+                ", zip code=" + zipCode +
                 '}';
     }
 }

@@ -112,7 +112,7 @@ dbRef.push().setValue(incense);
                 .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                     @Override
                     public void onSuccess(@NonNull UploadTask.TaskSnapshot taskSnapshot) {
-                        Toast.makeText(getContext(), "Image uploaded succeefully", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getContext(), "הפריט הועלה בהצלחה!", Toast.LENGTH_SHORT).show();
                         NavHostFragment.findNavController(IncenseDataUploadFragment.this).navigate(R.id.action_incenseDataUploadFragment_to_incenseRecyclerFragment);
                     }
                 })

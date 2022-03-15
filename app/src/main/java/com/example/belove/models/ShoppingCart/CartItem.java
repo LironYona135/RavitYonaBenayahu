@@ -6,6 +6,7 @@ public class CartItem {
     private double price;
     private String imageID;
 
+
     public CartItem() {
     }
 

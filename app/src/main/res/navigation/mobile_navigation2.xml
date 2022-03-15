@@ -51,5 +51,5 @@
         android:id="@+id/addressesFragment"
         android:name="com.example.belove.ui.App.ShoppingCart.AddressesFragment"
         android:label="fragment_adresses"
-        tools:layout="@layout/fragment_adresses" />
+        tools:layout="@layout/fragment_shipping_adress" />
 </navigation>

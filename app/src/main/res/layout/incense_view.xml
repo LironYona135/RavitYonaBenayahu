@@ -52,9 +52,10 @@
             <Button
                 android:id="@+id/addToCartButton"
                 android:layout_width="match_parent"
-                android:layout_height="88dp"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Button" />
+                android:drawableBottom="@drawable/ic_shopping_cart"
+                android:drawablePadding="8dp"/>
 
             <TextView
                 android:id="@+id/priceTextView"
