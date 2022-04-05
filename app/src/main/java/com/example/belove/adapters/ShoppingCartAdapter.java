@@ -34,7 +34,7 @@ public class ShoppingCartAdapter extends RecyclerView.Adapter<ShoppingCartAdapte
     @Override
     public VH onCreateViewHolder(ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
-        ShoppingCartViewBinding binding = ShoppingCartViewBinding.inflate(inflater);
+        ShoppingCartViewBinding binding = ShoppingCartViewBinding.inflate(inflater,parent,false);
 
 
         return new VH(binding);
