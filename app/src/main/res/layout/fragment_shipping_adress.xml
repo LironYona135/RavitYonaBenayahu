@@ -6,7 +6,7 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/shippingAddressHeader"
+        android:id="@+id/billingAddressHeader"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -20,7 +20,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/fullNameEditText"
+        android:id="@+id/shippingFullNameEditText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -31,10 +31,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.895"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/shippingAddressHeader" />
+        app:layout_constraintTop_toBottomOf="@+id/billingAddressHeader" />
 
     <EditText
-        android:id="@+id/cityEditText"
+        android:id="@+id/shippingCityEditText"
         android:layout_width="253dp"
         android:layout_height="48dp"
         android:layout_marginTop="16dp"
@@ -44,10 +44,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.865"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/fullNameEditText" />
+        app:layout_constraintTop_toBottomOf="@+id/shippingFullNameEditText" />
 
     <EditText
-        android:id="@+id/streetEditText"
+        android:id="@+id/shippingStreetEditText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -58,10 +58,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.895"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cityEditText" />
+        app:layout_constraintTop_toBottomOf="@+id/shippingCityEditText" />
 
     <EditText
-        android:id="@+id/editTextNumber"
+        android:id="@+id/shippingHouseNumEditText"
         android:layout_width="126dp"
         android:layout_height="55dp"
         android:layout_marginTop="16dp"
@@ -71,10 +71,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.929"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/streetEditText" />
+        app:layout_constraintTop_toBottomOf="@+id/shippingStreetEditText" />
 
     <EditText
-        android:id="@+id/editTextNumber2"
+        android:id="@+id/shippingAptEditText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -85,6 +85,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.895"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextNumber" />
+        app:layout_constraintTop_toBottomOf="@+id/shippingHouseNumEditText" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

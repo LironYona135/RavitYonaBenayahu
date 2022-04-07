@@ -11,13 +11,16 @@ import android.view.ViewGroup;
 import com.example.belove.R;
 
 
-public class AddressesFragment extends Fragment {
+public class BillingAdressFragment extends Fragment {
 
 
 
-    public AddressesFragment() {
+
+    public BillingAdressFragment() {
         // Required empty public constructor
     }
+
+
 
 
     @Override
@@ -30,6 +33,6 @@ public class AddressesFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_shipping_adress, container, false);
+        return inflater.inflate(R.layout.fragment_billing_adress, container, false);
     }
 }
