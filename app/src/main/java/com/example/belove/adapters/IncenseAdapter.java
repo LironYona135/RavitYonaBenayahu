@@ -36,7 +36,7 @@ public class IncenseAdapter extends RecyclerView.Adapter<IncenseAdapter.VH> {
     @Override
     public VH onCreateViewHolder(ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
-        IncenseViewBinding binding = IncenseViewBinding.inflate(inflater);
+        IncenseViewBinding binding = IncenseViewBinding.inflate(inflater,parent,false);
 
 
         return new VH(binding);
@@ -49,6 +49,7 @@ public class IncenseAdapter extends RecyclerView.Adapter<IncenseAdapter.VH> {
         System.out.println(incense);
         holder.binding.titleTextView.setText(incense.getTitle());
         holder.binding.descriptionTextView.setText(incense.getDescription());
+        holder.binding.priceTextView.setText(Double.toString(incense.getPrice()));
         //holder.binding.imageView.setImageResource(totem.getImage());
         StorageReference storageRef = FirebaseStorage.getInstance().getReference("Images")
                 .child(incense.getImageID());
