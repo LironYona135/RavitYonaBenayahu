@@ -96,4 +96,5 @@
 
 רוית.</string>
     <string name="shippingAddress">כתובת למשלוח</string>
+    <string name="BillingHeader">כתובת לחיוב</string>
 </resources>
