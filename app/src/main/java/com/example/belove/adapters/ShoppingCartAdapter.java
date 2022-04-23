@@ -9,7 +9,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.belove.SharedPrefs.SharedPrefs;
-import com.example.belove.databinding.IncenseViewBinding;
+import com.example.belove.databinding.ProductViewBinding;
 import com.example.belove.databinding.ShoppingCartViewBinding;
 import com.example.belove.models.ShoppingCart.CartItem;
 import com.example.belove.models.incense.Incense;

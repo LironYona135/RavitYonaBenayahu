@@ -6,7 +6,7 @@
         android:title="קצת עליי" />
 
     <item
-        android:id="@+id/incenseRecyclerFragment"
+        android:id="@+id/productRecyclerFragment"
         android:icon="@drawable/ic_shopping_bag"
         android:title="החנות" />
 

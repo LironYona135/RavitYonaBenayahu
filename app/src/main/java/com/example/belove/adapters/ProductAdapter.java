@@ -1,6 +1,5 @@
 package com.example.belove.adapters;
 
-import android.content.SharedPreferences;
 import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
@@ -10,7 +9,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.belove.SharedPrefs.SharedPrefs;
-import com.example.belove.databinding.IncenseViewBinding;
+import com.example.belove.databinding.ProductViewBinding;
 import com.example.belove.models.ShoppingCart.CartItem;
 import com.example.belove.models.ShoppingCart.CartItems;
 import com.example.belove.models.incense.Incense;
@@ -23,12 +22,12 @@ import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
-public class IncenseAdapter extends RecyclerView.Adapter<IncenseAdapter.VH> {
+public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.VH> {
 
     private ArrayList<Incense> incenses;
     private static CartItems cartItems = new CartItems();
 
-    public IncenseAdapter(ArrayList<Incense> incenses) {
+    public ProductAdapter(ArrayList<Incense> incenses) {
         this.incenses = incenses;
     }
 
@@ -36,7 +35,7 @@ public class IncenseAdapter extends RecyclerView.Adapter<IncenseAdapter.VH> {
     @Override
     public VH onCreateViewHolder(ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
-        IncenseViewBinding binding = IncenseViewBinding.inflate(inflater,parent,false);
+        ProductViewBinding binding = ProductViewBinding.inflate(inflater,parent,false);
 
 
         return new VH(binding);
@@ -44,7 +43,7 @@ public class IncenseAdapter extends RecyclerView.Adapter<IncenseAdapter.VH> {
 
 
 
-    public void onBindViewHolder( IncenseAdapter.VH holder, int position) {
+    public void onBindViewHolder(ProductAdapter.VH holder, int position) {
         Incense incense = incenses.get(position);
         System.out.println(incense);
         holder.binding.titleTextView.setText(incense.getTitle());
@@ -82,9 +81,9 @@ public class IncenseAdapter extends RecyclerView.Adapter<IncenseAdapter.VH> {
     }
 
     static class VH extends RecyclerView.ViewHolder{
-        IncenseViewBinding binding;
+        ProductViewBinding binding;
 
-        public VH(IncenseViewBinding binding) {
+        public VH(ProductViewBinding binding) {
             super(binding.getRoot());
             this.binding = binding;
         }

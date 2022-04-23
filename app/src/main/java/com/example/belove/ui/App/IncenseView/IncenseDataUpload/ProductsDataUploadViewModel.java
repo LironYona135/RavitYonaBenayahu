@@ -7,7 +7,7 @@ import android.webkit.MimeTypeMap;
 
 import androidx.lifecycle.ViewModel;
 
-public class IncenseDataUploadViewModel extends ViewModel {
+public class ProductsDataUploadViewModel extends ViewModel {
 
 
     //get the image file type
