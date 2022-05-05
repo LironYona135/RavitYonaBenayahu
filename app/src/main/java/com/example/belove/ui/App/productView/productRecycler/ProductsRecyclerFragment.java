@@ -1,4 +1,4 @@
-package com.example.belove.ui.App.IncenseView.IncenseRecycler;
+package com.example.belove.ui.App.productView.productRecycler;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -15,8 +15,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import com.example.belove.R;
 import com.example.belove.adapters.ProductAdapter;
 import com.example.belove.databinding.ProductsRecyclerFragmentBinding;
-import com.example.belove.models.incense.Incense;
-import com.example.belove.models.incense.Incenses;
+import com.example.belove.models.product.Product;
+import com.example.belove.models.product.Products;
 import com.example.belove.ui.App.MainActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -31,7 +31,7 @@ public class ProductsRecyclerFragment extends Fragment {
     private ProductsRecyclerViewModel productsRecyclerViewModel;
     private ProductsRecyclerFragmentBinding binding;
     private DatabaseReference dbRef;
-    private static final Incenses incenses = new Incenses();
+    private static final Products PRODUCTS = new Products();
     private static boolean firstOpening = true;
 
 
@@ -51,14 +51,14 @@ public class ProductsRecyclerFragment extends Fragment {
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
 
                     for (DataSnapshot postSnapshot : snapshot.getChildren()) {
-                        Incense incense = postSnapshot.getValue(Incense.class);
-                        incenses.addIncense(incense);
+                        Product product = postSnapshot.getValue(Product.class);
+                        PRODUCTS.addProduct(product);
                     }
                     //todo:save uri so that you dont have to go to internet everytime to get photos
-                    ProductAdapter adapter = new ProductAdapter(incenses.getIncenses());
+                    ProductAdapter adapter = new ProductAdapter(PRODUCTS.getProducts());
                     binding.productRecyclerView.setAdapter(adapter);
                     binding.productRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-                    System.out.println(incenses);
+                    System.out.println(PRODUCTS);
                 }
 
                 @Override
@@ -93,7 +93,7 @@ public class ProductsRecyclerFragment extends Fragment {
 
 
         if (!firstOpening) {
-            ProductAdapter adapter = new ProductAdapter(incenses.getIncenses());
+            ProductAdapter adapter = new ProductAdapter(PRODUCTS.getProducts());
             binding.productRecyclerView.setAdapter(adapter);
             binding.productRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         }

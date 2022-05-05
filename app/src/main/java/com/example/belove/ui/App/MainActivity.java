@@ -73,6 +73,6 @@ public class MainActivity extends AppCompatActivity {
         navView.setVisibility(View.VISIBLE);
     }
 
-
+//TODO:change all file names to start with lowercase
 
 }

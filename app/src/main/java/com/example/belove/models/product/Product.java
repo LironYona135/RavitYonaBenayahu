@@ -1,13 +1,13 @@
-package com.example.belove.models.incense;
+package com.example.belove.models.product;
 
-public class Incense {
+public class Product {
     private String title;
     private String description;
     private double price;
     private String imageID;
     private boolean inStock;
     //todo:probably dont need incenseID
-    private String incenseID;
+    private String productID;
 
 //    public Incense(String title, String description, double price, String imageID, boolean inStock,String incenseID) {
 //        setTitle(title);
@@ -19,15 +19,15 @@ public class Incense {
 //    }
 
 
-    public Incense() {
+    public Product() {
     }
 
-    public String getIncenseID() {
-        return incenseID;
+    public String getProductID() {
+        return productID;
     }
 
-    public void setIncenseID(String incenseID) {
-        this.incenseID = incenseID;
+    public void setProductID(String incenseID) {
+        this.productID = incenseID;
     }
 
     public String getImageID() {
@@ -72,23 +72,24 @@ public class Incense {
     }
 
     //todo:do we need this constructor?
-    public Incense(String title, String description, double price, String imageID, boolean inStock, String incenseID) {
+    public Product(String title, String description, double price, String imageID, boolean inStock, String productID) {
         this.title = title;
         this.description = description;
         this.price = price;
         this.imageID = imageID;
         this.inStock = inStock;
-        this.incenseID = incenseID;
+        this.productID = productID;
     }
 
     @Override
     public String toString() {
-        return "incense{" +
-                ", headLine='" + title + '\'' +
+        return "Product{" +
+                "title='" + title + '\'' +
                 ", description='" + description + '\'' +
                 ", price=" + price +
                 ", imageID='" + imageID + '\'' +
                 ", inStock=" + inStock +
+                ", productID='" + productID + '\'' +
                 '}';
     }
 }

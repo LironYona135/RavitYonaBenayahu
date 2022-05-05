@@ -1,4 +1,4 @@
-package com.example.belove.ui.App.IncenseView.IncenseRecycler;
+package com.example.belove.ui.App.productView.productRecycler;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;

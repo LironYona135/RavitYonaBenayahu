@@ -1,4 +1,4 @@
-package com.example.belove.ui.App.IncenseView.IncenseDataUpload;
+package com.example.belove.ui.App.productView.productDataUpload;
 
 import android.content.ContentResolver;
 import android.content.Context;

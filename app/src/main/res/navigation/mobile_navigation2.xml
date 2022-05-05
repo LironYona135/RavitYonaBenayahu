@@ -12,7 +12,7 @@
         tools:layout="@layout/fragment_Events" />
     <fragment
         android:id="@+id/productsDataUploadFragment"
-        android:name="com.example.belove.ui.App.IncenseView.IncenseDataUpload.ProductsDataUploadFragment"
+        android:name="com.example.belove.ui.App.productView.productDataUpload.ProductsDataUploadFragment"
         android:label="incense_data_upload_fragment"
         tools:layout="@layout/products_data_upload_fragment">
         <action
@@ -21,7 +21,7 @@
     </fragment>
     <fragment
         android:id="@+id/productRecyclerFragment"
-        android:name="com.example.belove.ui.App.IncenseView.IncenseRecycler.ProductsRecyclerFragment"
+        android:name="com.example.belove.ui.App.productView.productRecycler.ProductsRecyclerFragment"
         android:label="product_recycler_fragment"
         tools:layout="@layout/products_recycler_fragment">
         <action

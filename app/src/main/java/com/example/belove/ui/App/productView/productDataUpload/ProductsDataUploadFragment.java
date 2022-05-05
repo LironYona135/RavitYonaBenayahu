@@ -1,27 +1,25 @@
-package com.example.belove.ui.App.IncenseView.IncenseDataUpload;
+package com.example.belove.ui.App.productView.productDataUpload;
 
 import static android.app.Activity.RESULT_OK;
-
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.ViewModelProvider;
 
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-import androidx.navigation.fragment.NavHostFragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.fragment.NavHostFragment;
+
 import com.example.belove.R;
 import com.example.belove.databinding.ProductsDataUploadFragmentBinding;
-import com.example.belove.models.incense.Incense;
+import com.example.belove.models.product.Product;
 import com.example.belove.ui.App.MainActivity;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -79,18 +77,18 @@ public class ProductsDataUploadFragment extends Fragment {
     //upload the file to firebase
     private void fileUploader() {
         //Incense incense =new Incense("headLine test", "description test", 555, "imageID", true);
-        Incense incense = new Incense();
+        Product product = new Product();
         String incenseID = UUID.randomUUID().toString();
         //todo:not sure we need incense id, if the titles get checked
-        incense.setIncenseID(incenseID);
+        product.setProductID(incenseID);
         //todo:for that checks the title is unique after retrieving the information
         String incenseTitle = binding.etTitle.getText().toString().trim();
-        incense.setTitle(incenseTitle);
-        incense.setDescription(binding.etDescription.getText().toString().trim());
-        incense.setPrice(Double.parseDouble(binding.etPrice.getText().toString().trim()));
-        incense.setInStock(binding.cbInStock.isChecked());
+        product.setTitle(incenseTitle);
+        product.setDescription(binding.etDescription.getText().toString().trim());
+        product.setPrice(Double.parseDouble(binding.etPrice.getText().toString().trim()));
+        product.setInStock(binding.cbInStock.isChecked());
         String imageID = UUID.randomUUID().toString() + "." + productsDataUploadViewModel.getExtension(imgUri, getActivity());
-        incense.setImageID(imageID);
+        product.setImageID(imageID);
 //        String title = binding.etTitle.getText().toString().trim();
 //        String description = binding.etDescription.getText().toString().trim();
 //        double price = Double.parseDouble(binding.etPrice.getText().toString().trim());
@@ -99,7 +97,7 @@ public class ProductsDataUploadFragment extends Fragment {
 //        String incenseID = UUID.randomUUID().toString();
         //Incense incense = new Incense(title, description, price, imageID, inStock,incenseID);
 
-dbRef.push().setValue(incense);
+dbRef.push().setValue(product);
 
 
 
