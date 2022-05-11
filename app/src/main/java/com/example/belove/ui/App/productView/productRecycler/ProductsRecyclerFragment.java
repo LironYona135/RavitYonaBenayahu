@@ -1,4 +1,4 @@
-package com.example.belove.ui.App.IncenseView.IncenseRecycler;
+package com.example.belove.ui.App.productView.productRecycler;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -13,37 +13,35 @@ import androidx.navigation.fragment.NavHostFragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.example.belove.R;
-import com.example.belove.adapters.IncenseAdapter;
-import com.example.belove.databinding.IncenseRecyclerFragmentBinding;
-import com.example.belove.models.incense.Incense;
-import com.example.belove.models.incense.Incenses;
+import com.example.belove.adapters.ProductAdapter;
+import com.example.belove.databinding.ProductsRecyclerFragmentBinding;
+import com.example.belove.models.product.Product;
+import com.example.belove.models.product.Products;
 import com.example.belove.ui.App.MainActivity;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.google.firebase.firestore.auth.User;
 
 
-public class IncenseRecyclerFragment extends Fragment {
+public class ProductsRecyclerFragment extends Fragment {
 
-    private IncenseRecyclerViewModel incenseRecyclerViewModel;
-    private IncenseRecyclerFragmentBinding binding;
+    private ProductsRecyclerViewModel productsRecyclerViewModel;
+    private ProductsRecyclerFragmentBinding binding;
     private DatabaseReference dbRef;
-    private static final Incenses incenses = new Incenses();
+    private static final Products PRODUCTS = new Products();
     private static boolean firstOpening = true;
 
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        incenseRecyclerViewModel =
-                new ViewModelProvider(this).get(IncenseRecyclerViewModel.class);
+        productsRecyclerViewModel =
+                new ViewModelProvider(this).get(ProductsRecyclerViewModel.class);
         dbRef = FirebaseDatabase.getInstance("https://belove-c69da-default-rtdb.europe-west1.firebasedatabase.app")
                 .getReference().child("Incense");
-        binding = IncenseRecyclerFragmentBinding.inflate(inflater, container, false);
+        binding = ProductsRecyclerFragmentBinding.inflate(inflater, container, false);
 
 
         //retrieving info
@@ -53,14 +51,14 @@ public class IncenseRecyclerFragment extends Fragment {
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
 
                     for (DataSnapshot postSnapshot : snapshot.getChildren()) {
-                        Incense incense = postSnapshot.getValue(Incense.class);
-                        incenses.addIncense(incense);
+                        Product product = postSnapshot.getValue(Product.class);
+                        PRODUCTS.addProduct(product);
                     }
                     //todo:save uri so that you dont have to go to internet everytime to get photos
-                    IncenseAdapter adapter = new IncenseAdapter(incenses.getIncenses());
-                    binding.incenseRecyclerView.setAdapter(adapter);
-                    binding.incenseRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-                    System.out.println(incenses);
+                    ProductAdapter adapter = new ProductAdapter(PRODUCTS.getProducts());
+                    binding.productRecyclerView.setAdapter(adapter);
+                    binding.productRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+                    System.out.println(PRODUCTS);
                 }
 
                 @Override
@@ -82,22 +80,22 @@ public class IncenseRecyclerFragment extends Fragment {
         String email = FirebaseAuth.getInstance().getCurrentUser().getEmail();
 
         if (email != null) {
-            if (email.equalsIgnoreCase("lironyona135@gmail.com")) {
+            if (email.equalsIgnoreCase("lironyona135@gmail.com") | email.equalsIgnoreCase("yaniv.shtein@gmail.com")) {
                 binding.actionButtonAddIncense.setVisibility(View.VISIBLE);
             } else {
                 binding.actionButtonAddIncense.setVisibility(View.INVISIBLE);
             }
         }
         binding.actionButtonAddIncense.setOnClickListener(v -> {
-            NavHostFragment.findNavController(IncenseRecyclerFragment.this)
+            NavHostFragment.findNavController(ProductsRecyclerFragment.this)
                     .navigate(R.id.action_incenseRecyclerFragment_to_incenseDataUploadFragment);
         });
 
 
         if (!firstOpening) {
-            IncenseAdapter adapter = new IncenseAdapter(incenses.getIncenses());
-            binding.incenseRecyclerView.setAdapter(adapter);
-            binding.incenseRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+            ProductAdapter adapter = new ProductAdapter(PRODUCTS.getProducts());
+            binding.productRecyclerView.setAdapter(adapter);
+            binding.productRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         }
 
 

@@ -21,7 +21,7 @@
 
 
         <ImageView
-            android:id="@+id/incenseImageView"
+            android:id="@+id/productImageView"
             android:layout_width="120dp"
             android:layout_height="90dp"
             android:layout_marginTop="16dp"
@@ -49,8 +49,8 @@
             android:layout_height="wrap_content"
             android:text="TextView"
             cardView:layout_constraintBottom_toTopOf="@+id/descriptionTextView"
-            cardView:layout_constraintStart_toEndOf="@+id/incenseImageView"
-            cardView:layout_constraintTop_toTopOf="@+id/incenseImageView" />
+            cardView:layout_constraintStart_toEndOf="@+id/productImageView"
+            cardView:layout_constraintTop_toTopOf="@+id/productImageView" />
 
         <Button
             android:id="@+id/addToCartButton"

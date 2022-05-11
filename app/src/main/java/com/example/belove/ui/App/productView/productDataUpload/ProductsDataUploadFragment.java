@@ -1,43 +1,40 @@
-package com.example.belove.ui.App.IncenseView.IncenseDataUpload;
+package com.example.belove.ui.App.productView.productDataUpload;
 
 import static android.app.Activity.RESULT_OK;
-
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.ViewModelProvider;
 
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-import androidx.navigation.fragment.NavHostFragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.fragment.NavHostFragment;
+
 import com.example.belove.R;
-import com.example.belove.databinding.IncenseDataUploadFragmentBinding;
-import com.example.belove.models.incense.Incense;
+import com.example.belove.databinding.ProductsDataUploadFragmentBinding;
+import com.example.belove.models.product.Product;
 import com.example.belove.ui.App.MainActivity;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
 import java.util.UUID;
 
-public class IncenseDataUploadFragment extends Fragment {
+public class ProductsDataUploadFragment extends Fragment {
 
-    private IncenseDataUploadViewModel incenseDataUploadViewModel;
-    private IncenseDataUploadFragmentBinding binding;
+    private ProductsDataUploadViewModel productsDataUploadViewModel;
+    private ProductsDataUploadFragmentBinding binding;
     private StorageReference mStorageRef;
     private Uri imgUri;
     private DatabaseReference dbRef;
@@ -46,12 +43,12 @@ public class IncenseDataUploadFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        incenseDataUploadViewModel = new ViewModelProvider(this).get(IncenseDataUploadViewModel.class);
+        productsDataUploadViewModel = new ViewModelProvider(this).get(ProductsDataUploadViewModel.class);
 
         dbRef = FirebaseDatabase.getInstance("https://belove-c69da-default-rtdb.europe-west1.firebasedatabase.app")
                 .getReference().child("Incense");
         mStorageRef = FirebaseStorage.getInstance().getReference("Images");
-        binding = IncenseDataUploadFragmentBinding.inflate(inflater, container, false);
+        binding = ProductsDataUploadFragmentBinding.inflate(inflater, container, false);
         return binding.getRoot();
 
     }
@@ -80,18 +77,18 @@ public class IncenseDataUploadFragment extends Fragment {
     //upload the file to firebase
     private void fileUploader() {
         //Incense incense =new Incense("headLine test", "description test", 555, "imageID", true);
-        Incense incense = new Incense();
+        Product product = new Product();
         String incenseID = UUID.randomUUID().toString();
         //todo:not sure we need incense id, if the titles get checked
-        incense.setIncenseID(incenseID);
+        product.setProductID(incenseID);
         //todo:for that checks the title is unique after retrieving the information
         String incenseTitle = binding.etTitle.getText().toString().trim();
-        incense.setTitle(incenseTitle);
-        incense.setDescription(binding.etDescription.getText().toString().trim());
-        incense.setPrice(Double.parseDouble(binding.etPrice.getText().toString().trim()));
-        incense.setInStock(binding.cbInStock.isChecked());
-        String imageID = UUID.randomUUID().toString() + "." + incenseDataUploadViewModel.getExtension(imgUri, getActivity());
-        incense.setImageID(imageID);
+        product.setTitle(incenseTitle);
+        product.setDescription(binding.etDescription.getText().toString().trim());
+        product.setPrice(Double.parseDouble(binding.etPrice.getText().toString().trim()));
+        product.setInStock(binding.cbInStock.isChecked());
+        String imageID = UUID.randomUUID().toString() + "." + productsDataUploadViewModel.getExtension(imgUri, getActivity());
+        product.setImageID(imageID);
 //        String title = binding.etTitle.getText().toString().trim();
 //        String description = binding.etDescription.getText().toString().trim();
 //        double price = Double.parseDouble(binding.etPrice.getText().toString().trim());
@@ -100,7 +97,7 @@ public class IncenseDataUploadFragment extends Fragment {
 //        String incenseID = UUID.randomUUID().toString();
         //Incense incense = new Incense(title, description, price, imageID, inStock,incenseID);
 
-dbRef.push().setValue(incense);
+dbRef.push().setValue(product);
 
 
 
@@ -113,7 +110,7 @@ dbRef.push().setValue(incense);
                     @Override
                     public void onSuccess(@NonNull UploadTask.TaskSnapshot taskSnapshot) {
                         Toast.makeText(getContext(), "הפריט הועלה בהצלחה!", Toast.LENGTH_SHORT).show();
-                        NavHostFragment.findNavController(IncenseDataUploadFragment.this).navigate(R.id.action_incenseDataUploadFragment_to_incenseRecyclerFragment);
+                        NavHostFragment.findNavController(ProductsDataUploadFragment.this).navigate(R.id.action_incenseDataUploadFragment_to_incenseRecyclerFragment);
                     }
                 })
                 .addOnFailureListener(new OnFailureListener() {

@@ -5,6 +5,8 @@ import static android.content.Context.MODE_PRIVATE;
 import android.content.Context;
 import android.content.SharedPreferences;
 
+import com.example.belove.adapters.ProductAdapter;
+import com.example.belove.models.ShoppingCart.CartItem;
 import com.example.belove.models.ShoppingCart.CartItems;
 import com.google.gson.Gson;
 
@@ -25,4 +27,11 @@ private static Gson gson = new Gson();
         CartItems cartItems = gson.fromJson(json, CartItems.class);
         return cartItems;
     }
+
+
+public static void removeShoppingItem(Context context, int position){
+    CartItems cartItems = getShoppingItems(context);
+    cartItems.removeCartItem(position);
+    saveShoppingItems(context,cartItems);
+}
 }

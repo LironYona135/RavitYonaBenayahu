@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.aboutMe,R.id.incenseRecyclerFragment, R.id.totemRecyclerFragment, R.id.EventsFragment,R.id.shoppingCart)
+                R.id.aboutMe,R.id.productRecyclerFragment, R.id.totemRecyclerFragment, R.id.EventsFragment,R.id.shoppingCart)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_activity_rest_of_app);
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
@@ -73,6 +73,6 @@ public class MainActivity extends AppCompatActivity {
         navView.setVisibility(View.VISIBLE);
     }
 
-
+//TODO:change all file names to start with lowercase
 
 }

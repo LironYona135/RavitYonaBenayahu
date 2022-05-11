@@ -38,6 +38,7 @@
         <entry key="..\:/Users/liron/Desktop/Github/RavitYonaBenayahu/app/src/main/res/layout/shopping_cart_fragment.xml" value="0.20606884057971014" />
         <entry key="..\:/Users/liron/Desktop/Github/RavitYonaBenayahu/app/src/main/res/menu/bottom_nav_menu.xml" value="0.1" />
         <entry key="..\:/Users/liron/Desktop/Github/RavitYonaBenayahu/app/src/main/res/mipmap-anydpi-v26/app_logo.xml" value="0.14947916666666666" />
+        <entry key="app/src/main/res/drawable/ic_launcher_foreground.xml" value="0.14479166666666668" />
         <entry key="app/src/main/res/layout/activity_facebook_sign_in.xml" value="0.10280797101449275" />
         <entry key="app/src/main/res/layout/activity_firebase_ui.xml" value="0.33" />
         <entry key="app/src/main/res/layout/activity_google_sign_in.xml" value="0.11005434782608696" />
@@ -53,6 +54,8 @@
         <entry key="app/src/main/res/layout/incense_recycler_fragment.xml" value="0.2" />
         <entry key="app/src/main/res/layout/incense_view.xml" value="0.1" />
         <entry key="app/src/main/res/layout/login_fragment.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/product_view.xml" value="0.14673913043478262" />
+        <entry key="app/src/main/res/layout/products_recycler_fragment.xml" value="0.17481884057971014" />
         <entry key="app/src/main/res/layout/register_fragment.xml" value="0.22" />
         <entry key="app/src/main/res/layout/shopping_cart_fragment.xml" value="0.2056159420289855" />
         <entry key="app/src/main/res/layout/shopping_cart_view.xml" value="0.25" />
@@ -60,7 +63,7 @@
         <entry key="app/src/main/res/layout/totem_recycler_fragment.xml" value="0.2269021739130435" />
         <entry key="app/src/main/res/layout/totem_view.xml" value="0.34322916666666664" />
         <entry key="app/src/main/res/menu/activity_main_drawer.xml" value="0.1" />
-        <entry key="app/src/main/res/menu/bottom_nav_menu.xml" value="0.1125" />
+        <entry key="app/src/main/res/menu/bottom_nav_menu.xml" value="0.1" />
         <entry key="app/src/main/res/menu/main.xml" value="0.25" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/app_logo.xml" value="0.359375" />
       </map>

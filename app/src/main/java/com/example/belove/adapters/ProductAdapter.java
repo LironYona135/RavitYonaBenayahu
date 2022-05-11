@@ -1,6 +1,5 @@
 package com.example.belove.adapters;
 
-import android.content.SharedPreferences;
 import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
@@ -10,10 +9,10 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.belove.SharedPrefs.SharedPrefs;
-import com.example.belove.databinding.IncenseViewBinding;
+import com.example.belove.databinding.ProductViewBinding;
 import com.example.belove.models.ShoppingCart.CartItem;
 import com.example.belove.models.ShoppingCart.CartItems;
-import com.example.belove.models.incense.Incense;
+import com.example.belove.models.product.Product;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.storage.FirebaseStorage;
@@ -23,20 +22,20 @@ import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
-public class IncenseAdapter extends RecyclerView.Adapter<IncenseAdapter.VH> {
+public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.VH> {
 
-    private ArrayList<Incense> incenses;
-    private static CartItems cartItems = new CartItems();
+    private ArrayList<Product> products;
+    private static CartItems cartItems;
 
-    public IncenseAdapter(ArrayList<Incense> incenses) {
-        this.incenses = incenses;
+    public ProductAdapter(ArrayList<Product> products) {
+        this.products = products;
     }
 
 
     @Override
     public VH onCreateViewHolder(ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
-        IncenseViewBinding binding = IncenseViewBinding.inflate(inflater,parent,false);
+        ProductViewBinding binding = ProductViewBinding.inflate(inflater,parent,false);
 
 
         return new VH(binding);
@@ -44,19 +43,19 @@ public class IncenseAdapter extends RecyclerView.Adapter<IncenseAdapter.VH> {
 
 
 
-    public void onBindViewHolder( IncenseAdapter.VH holder, int position) {
-        Incense incense = incenses.get(position);
-        System.out.println(incense);
-        holder.binding.titleTextView.setText(incense.getTitle());
-        holder.binding.descriptionTextView.setText(incense.getDescription());
-        holder.binding.priceTextView.setText(Double.toString(incense.getPrice()));
+    public void onBindViewHolder(ProductAdapter.VH holder, int position) {
+        Product product = products.get(position);
+        System.out.println(product);
+        holder.binding.titleTextView.setText(product.getTitle());
+        holder.binding.descriptionTextView.setText(product.getDescription());
+        holder.binding.priceTextView.setText(Double.toString(product.getPrice()));
         //holder.binding.imageView.setImageResource(totem.getImage());
         StorageReference storageRef = FirebaseStorage.getInstance().getReference("Images")
-                .child(incense.getImageID());
+                .child(product.getImageID());
         storageRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
             @Override
             public void onSuccess(@NonNull Uri uri) {
-                Picasso.get().load(uri).into(holder.binding.incenseImageView);
+                Picasso.get().load(uri).into(holder.binding.productImageView);
             }
         }).addOnFailureListener(new OnFailureListener() {
             @Override
@@ -66,10 +65,11 @@ public class IncenseAdapter extends RecyclerView.Adapter<IncenseAdapter.VH> {
         });
 
         holder.binding.addToCartButton.setOnClickListener(v -> {
+            cartItems = SharedPrefs.getShoppingItems(holder.itemView.getContext());
             CartItem cartItem = new CartItem();
-            cartItem.setTitle(incense.getTitle());
-            cartItem.setPrice(incense.getPrice());
-            cartItem.setImageID(incense.getImageID());
+            cartItem.setTitle(product.getTitle());
+            cartItem.setPrice(product.getPrice());
+            cartItem.setImageID(product.getImageID());
             cartItems.addCartItem(cartItem);
             SharedPrefs.saveShoppingItems(holder.itemView.getContext(), cartItems);
         });
@@ -78,13 +78,13 @@ public class IncenseAdapter extends RecyclerView.Adapter<IncenseAdapter.VH> {
 
 
     public int getItemCount() {
-        return incenses.size();
+        return products.size();
     }
 
     static class VH extends RecyclerView.ViewHolder{
-        IncenseViewBinding binding;
+        ProductViewBinding binding;
 
-        public VH(IncenseViewBinding binding) {
+        public VH(ProductViewBinding binding) {
             super(binding.getRoot());
             this.binding = binding;
         }

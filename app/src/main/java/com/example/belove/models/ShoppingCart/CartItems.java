@@ -24,6 +24,11 @@ public class CartItems {
         cartItems.add(item);
     }
 
+    public void removeCartItem(int position){
+        cartItems.remove(position);
+    }
+
+
     @Override
     public String toString() {
         return "CartItems{" +

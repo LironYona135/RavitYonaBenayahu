@@ -1,7 +1,6 @@
 package com.example.belove.ui.App.ShoppingCart;
 
 import androidx.annotation.Nullable;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import android.os.Bundle;
@@ -17,7 +16,6 @@ import android.view.ViewGroup;
 
 import com.example.belove.R;
 import com.example.belove.SharedPrefs.SharedPrefs;
-import com.example.belove.adapters.IncenseAdapter;
 import com.example.belove.adapters.ShoppingCartAdapter;
 import com.example.belove.databinding.ShoppingCartFragmentBinding;
 import com.example.belove.models.ShoppingCart.CartItems;

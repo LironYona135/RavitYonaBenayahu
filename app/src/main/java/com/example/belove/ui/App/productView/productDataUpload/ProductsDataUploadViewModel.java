@@ -1,4 +1,4 @@
-package com.example.belove.ui.App.IncenseView.IncenseDataUpload;
+package com.example.belove.ui.App.productView.productDataUpload;
 
 import android.content.ContentResolver;
 import android.content.Context;
@@ -7,7 +7,7 @@ import android.webkit.MimeTypeMap;
 
 import androidx.lifecycle.ViewModel;
 
-public class IncenseDataUploadViewModel extends ViewModel {
+public class ProductsDataUploadViewModel extends ViewModel {
 
 
     //get the image file type
