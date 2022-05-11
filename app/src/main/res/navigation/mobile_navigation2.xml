@@ -44,12 +44,19 @@
         android:label="shopping_cart_fragment"
         tools:layout="@layout/shopping_cart_fragment" >
         <action
-            android:id="@+id/action_shoppingCart_to_addressesFragment"
-            app:destination="@id/addressesFragment" />
+            android:id="@+id/action_shoppingCart_to_shippingAddressFragment"
+            app:destination="@id/shippingAddressFragment" />
     </fragment>
     <fragment
-        android:id="@+id/addressesFragment"
+        android:id="@+id/shippingAddressFragment"
         android:name="com.example.belove.ui.App.ShoppingCart.ShippingAddressFragment"
-        android:label="fragment_adresses"
-        tools:layout="@layout/fragment_shipping_adress" />
+        android:label="ShippingAddressFragment" >
+        <action
+            android:id="@+id/action_shippingAddressFragment_to_billingAdressFragment"
+            app:destination="@id/billingAdressFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/billingAdressFragment"
+        android:name="com.example.belove.ui.App.ShoppingCart.BillingAdressFragment"
+        android:label="BillingAdressFragment" />
 </navigation>

@@ -52,7 +52,7 @@ public class ShoppingCartFragment extends Fragment {
         binding.checkoutBtn.setOnClickListener(v -> {
 
             NavHostFragment.findNavController(ShoppingCartFragment.this)
-                    .navigate(R.id.action_shoppingCart_to_addressesFragment);
+                    .navigate(R.id.action_shoppingCart_to_shippingAddressFragment);
         });
 
 
