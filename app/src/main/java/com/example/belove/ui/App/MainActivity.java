@@ -27,7 +27,8 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        //removes top action bar, TODO: need to put a nice headline for each page
+        getSupportActionBar().hide();
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
@@ -35,15 +36,15 @@ public class MainActivity extends AppCompatActivity {
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.aboutMe,R.id.productRecyclerFragment, R.id.totemRecyclerFragment, R.id.EventsFragment,R.id.shoppingCart)
+                R.id.aboutMe, R.id.productRecyclerFragment, R.id.totemRecyclerFragment, R.id.EventsFragment, R.id.shoppingCart)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_activity_rest_of_app);
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(binding.navView, navController);
 
 
-
     }
+
     FirebaseAuth.AuthStateListener authStateListener = new FirebaseAuth.AuthStateListener() {
         @Override
         public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
@@ -54,22 +55,24 @@ public class MainActivity extends AppCompatActivity {
             }
         }
     };
+
     @Override
     protected void onStart() {
         super.onStart();
         firebaseAuth.addAuthStateListener(authStateListener);
     }
+
     @Override
     protected void onStop() {
         super.onStop();
         firebaseAuth.removeAuthStateListener(authStateListener);
     }
 
-    public static void hideBottomNav(){
+    public static void hideBottomNav() {
         navView.setVisibility(View.GONE);
     }
 
-    public static void showBottomNav(){
+    public static void showBottomNav() {
         navView.setVisibility(View.VISIBLE);
     }
 

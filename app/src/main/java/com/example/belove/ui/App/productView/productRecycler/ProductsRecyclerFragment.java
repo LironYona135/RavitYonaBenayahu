@@ -80,10 +80,8 @@ public class ProductsRecyclerFragment extends Fragment {
         String email = FirebaseAuth.getInstance().getCurrentUser().getEmail();
 
         if (email != null) {
-            if (email.equalsIgnoreCase("lironyona135@gmail.com") | email.equalsIgnoreCase("yaniv.shtein@gmail.com")) {
+            if (email.equalsIgnoreCase("lironyona135@gmail.com") | email.equalsIgnoreCase("yaniv.shtein@gmail.com") | email.equalsIgnoreCase("test@gmail.com")) {
                 binding.actionButtonAddIncense.setVisibility(View.VISIBLE);
-            } else {
-                binding.actionButtonAddIncense.setVisibility(View.INVISIBLE);
             }
         }
         binding.actionButtonAddIncense.setOnClickListener(v -> {

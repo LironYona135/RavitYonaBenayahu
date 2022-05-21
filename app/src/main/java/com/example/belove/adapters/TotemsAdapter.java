@@ -8,6 +8,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.belove.databinding.ProductViewBinding;
 import com.example.belove.databinding.TotemViewBinding;
 import com.example.belove.models.totem.Totem;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -31,7 +32,7 @@ public class TotemsAdapter extends RecyclerView.Adapter<TotemsAdapter.VH>{
     @Override
     public VH onCreateViewHolder(ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
-        TotemViewBinding binding = TotemViewBinding.inflate(inflater);
+        TotemViewBinding binding =TotemViewBinding.inflate(inflater,parent,false);
 
 
         return new VH(binding);
