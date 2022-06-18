@@ -25,6 +25,9 @@ private static Gson gson = new Gson();
         SharedPreferences prefs = context.getSharedPreferences("ShoppingCart",MODE_PRIVATE);
         String json = prefs.getString("ShoppingCart", null);
         CartItems cartItems = gson.fromJson(json, CartItems.class);
+        if (cartItems == null) {
+            return new CartItems();
+        }
         return cartItems;
     }
 
